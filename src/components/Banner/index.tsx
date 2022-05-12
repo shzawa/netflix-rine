@@ -1,9 +1,11 @@
+import * as React from "react";
 import { Urls } from "../../consts/urls";
 import { useRandomMovie } from "../../hooks/useRandomMovie";
 import styles from "./index.module.scss";
 
 export const Banner = () => {
   const { movie } = useRandomMovie();
+
   function truncate(str: any, n: number) {
     // undefinedを弾く
     if (str !== undefined) {

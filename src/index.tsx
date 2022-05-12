@@ -1,5 +1,6 @@
 import * as React from "react";
 import { render } from "react-dom";
+import { Banner } from "./components/Banner";
 import { Row } from "./components/Row";
 import { Urls } from "./consts/urls";
 
@@ -9,6 +10,7 @@ function App() {
   return (
     <div className="App">
       <div className="App">
+        <Banner />
         <Row
           title="NETFLIX ORIGUINALS"
           fetchUrl={Urls.NetflixOriginals}
