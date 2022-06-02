@@ -1,6 +1,7 @@
 import * as React from "react";
 import { render } from "react-dom";
 import { Banner } from "./components/Banner";
+import { Nav } from "./components/Nav";
 import { Row } from "./components/Row";
 import { Urls } from "./consts/urls";
 
@@ -10,6 +11,7 @@ function App() {
   return (
     <div className="App">
       <div className="App">
+        <Nav />
         <Banner />
         <Row
           title="NETFLIX ORIGUINALS"
