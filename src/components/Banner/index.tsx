@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Urls } from "../../consts/urls";
+import { ImageUrls } from "../../consts/urls";
 import { useRandomMovie } from "../../hooks/useRandomMovie";
 import styles from "./index.module.scss";
 
@@ -18,7 +18,7 @@ export const Banner = () => {
       className={styles["banner"]}
       style={{
         backgroundSize: "cover",
-        backgroundImage: `url("${Urls.Base}${movie?.backdrop_path}")`,
+        backgroundImage: `url("${ImageUrls.Base}${movie?.backdrop_path}")`,
         backgroundPosition: "center center"
       }}
     >

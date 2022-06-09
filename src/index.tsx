@@ -3,7 +3,7 @@ import { render } from "react-dom";
 import { Banner } from "./components/Banner";
 import { Nav } from "./components/Nav";
 import { Row } from "./components/Row";
-import { Urls } from "./consts/urls";
+import { ImageUrls } from "./consts/urls";
 
 import "./styles.css";
 
@@ -15,15 +15,19 @@ function App() {
         <Banner />
         <Row
           title="NETFLIX ORIGUINALS"
-          fetchUrl={Urls.NetflixOriginals}
+          fetchUrl={ImageUrls.NetflixOriginals}
           isLargeRow
         />
-        <Row title="Top Rated" fetchUrl={Urls.TopRated} />
-        <Row title="Action Movies" fetchUrl={Urls.ActionMovies} isLargeRow />
-        <Row title="Comedy Movies" fetchUrl={Urls.ComedyMovies} />
-        <Row title="Horror Movies" fetchUrl={Urls.HorrorMovies} />
-        <Row title="Romance Movies" fetchUrl={Urls.RomanceMovies} />
-        <Row title="DOcumentaries" fetchUrl={Urls.DocumentMovies} />
+        <Row title="Top Rated" fetchUrl={ImageUrls.TopRated} />
+        <Row
+          title="Action Movies"
+          fetchUrl={ImageUrls.ActionMovies}
+          isLargeRow
+        />
+        <Row title="Comedy Movies" fetchUrl={ImageUrls.ComedyMovies} />
+        <Row title="Horror Movies" fetchUrl={ImageUrls.HorrorMovies} />
+        <Row title="Romance Movies" fetchUrl={ImageUrls.RomanceMovies} />
+        <Row title="DOcumentaries" fetchUrl={ImageUrls.DocumentMovies} />
       </div>
     </div>
   );

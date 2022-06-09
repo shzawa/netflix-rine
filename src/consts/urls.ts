@@ -1,6 +1,6 @@
 import { API_KEY } from "./env";
 
-export const Urls = {
+export const ImageUrls = {
   Base: "https://image.tmdb.org/t/p/original",
   Trending: `/trending/all/week?api_key=${API_KEY}&language=en-us`,
   NetflixOriginals: `/discover/tv?api_key=${API_KEY}&with_networks=213`,

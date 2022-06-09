@@ -1,6 +1,5 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
-import { apiClient } from "../libs/api";
+import { fetchMovieDatabase } from "../libs/api";
 import { Movie } from "../models/movie";
 
 export const useMovies = (url: string) => {
@@ -8,14 +7,9 @@ export const useMovies = (url: string) => {
 
   useEffect(() => {
     async function fetchData() {
-      try {
-        const request = await apiClient.get(url);
-        setMovies(request.data.results);
-        return request;
-      } catch (error) {
-        if (axios.isAxiosError(error)) {
-          console.error(error.response);
-        }
+      const { data, error } = await fetchMovieDatabase(url);
+      if (!error) {
+        setMovies(data.results);
       }
     }
     fetchData();

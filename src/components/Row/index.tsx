@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import YouTube from "react-youtube";
-import { Urls } from "../../consts/urls";
+import { API_KEY } from "../../consts/env";
+import { ImageUrls } from "../../consts/urls";
 import { useMovies } from "../../hooks/useMovies";
-import { apiClient } from "../../libs/api";
+import { fetchMovieDatabase } from "../../libs/api";
 import { Movie } from "../../models/movie";
 import styles from "./index.module.scss";
 
@@ -35,10 +36,12 @@ export const Row: React.FC<Props> = ({ title, fetchUrl, isLargeRow }) => {
     if (trailerUrl) {
       setTrailerUrl("");
     } else {
-      let trailerurl = await apiClient.get(
-        `/movie/${movie.id}/videos?api_key=~~~` // FIXME: api_key
+      const { data, error } = await fetchMovieDatabase(
+        `/movie/${movie.id}/videos?api_key=${API_KEY}`
       );
-      setTrailerUrl(trailerurl.data.results[0]?.key);
+      if (!error) {
+        setTrailerUrl(data.results[0]?.key);
+      }
     }
   };
 
@@ -54,7 +57,7 @@ export const Row: React.FC<Props> = ({ title, fetchUrl, isLargeRow }) => {
               styles["row-posters"],
               `${isLargeRow && styles["row-poster-large"]}`
             ].join(" ")}
-            src={`${Urls.Base}${
+            src={`${ImageUrls.Base}${
               isLargeRow ? movie.poster_path : movie.backdrop_path
             }`}
             alt={movie.name}
